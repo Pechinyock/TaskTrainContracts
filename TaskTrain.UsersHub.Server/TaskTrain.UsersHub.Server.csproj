@@ -1,0 +1,59 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net9.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<RootNamespace>Me.Contracts</RootNamespace>
+		<InvariantGlobalization>true</InvariantGlobalization>
+		<PublishAot>true</PublishAot>
+		<IsAotCompatible>true</IsAotCompatible>
+		<Configurations>Debug;Release;Staging;Test</Configurations>
+		<PackageId>$(ProjectName)</PackageId>
+		<Version>1.0.0</Version>
+		<Authors>Rj</Authors>
+	</PropertyGroup>
+
+	<!-- Настройки, которые зависят от конфигурации -->
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+		<NoWarn>1701;1702</NoWarn>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Test|AnyCPU'">
+		<NoWarn>1701;1702</NoWarn>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Test|AnyCPU'">
+		<NoWarn>1701;1702</NoWarn>
+		<Optemize>true</Optemize>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Staging|AnyCPU'">
+		<NoWarn>1701;1702</NoWarn>
+		<!-- Отключение генерации pdb файлов -->
+		<DebugSymbols>false</DebugSymbols>
+		<DebugType>none</DebugType>
+		<Optemize>true</Optemize>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+		<NoWarn>1701;1702</NoWarn>
+		<!-- Отключение генерации pdb файлов -->
+		<DebugSymbols>false</DebugSymbols>
+		<DebugType>none</DebugType>
+		<Optemize>true</Optemize>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Staging|AnyCPU'">
+		<NoWarn>1701;1702</NoWarn>
+		<DebugSymbols>false</DebugSymbols>
+		<DebugType>none</DebugType>
+		<Optemize>true</Optemize>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<Protobuf Include="..\..\..\..\_contracts\user.proto" GrpcServices="Server" Link="_contracts\user.proto" />
+		<PackageReference Include="Grpc.AspNetCore" Version="2.70.0" />
+		<None Remove="Directory.Build.props" />
+	</ItemGroup>
+
+</Project>
