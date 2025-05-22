@@ -3,7 +3,7 @@
 	<PropertyGroup>
 		<TargetFramework>net9.0</TargetFramework>
 		<ImplicitUsings>enable</ImplicitUsings>
-		<RootNamespace>Me.Contracts</RootNamespace>
+		<RootNamespace>TaskTrain</RootNamespace>
 		<InvariantGlobalization>true</InvariantGlobalization>
 		<PublishAot>true</PublishAot>
 		<IsAotCompatible>true</IsAotCompatible>
@@ -15,10 +15,6 @@
 
 	<!-- Настройки, которые зависят от конфигурации -->
 	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-		<NoWarn>1701;1702</NoWarn>
-	</PropertyGroup>
-
-	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Test|AnyCPU'">
 		<NoWarn>1701;1702</NoWarn>
 	</PropertyGroup>
 
@@ -38,13 +34,6 @@
 	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
 		<NoWarn>1701;1702</NoWarn>
 		<!-- Отключение генерации pdb файлов -->
-		<DebugSymbols>false</DebugSymbols>
-		<DebugType>none</DebugType>
-		<Optemize>true</Optemize>
-	</PropertyGroup>
-
-	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Staging|AnyCPU'">
-		<NoWarn>1701;1702</NoWarn>
 		<DebugSymbols>false</DebugSymbols>
 		<DebugType>none</DebugType>
 		<Optemize>true</Optemize>
